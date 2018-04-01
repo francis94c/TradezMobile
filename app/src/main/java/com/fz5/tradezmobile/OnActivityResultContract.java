@@ -7,5 +7,6 @@ package com.fz5.tradezmobile;
 public class OnActivityResultContract {
     public static class RequestCodes {
         static int MAIN_ACTIVITY = 1;
+        static int LOGIN_ACTIVITY = 2;
     }
 }

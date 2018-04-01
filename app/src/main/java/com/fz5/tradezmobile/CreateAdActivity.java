@@ -37,9 +37,9 @@ public class CreateAdActivity extends AppCompatActivity {
         if (requestCode == 20) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 Intent intent = new Intent();
-                intent.setType("image/*");
+                intent.setType("video/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 52);
+                startActivityForResult(Intent.createChooser(intent, "Select Video"), 52);
             }
         }
     }

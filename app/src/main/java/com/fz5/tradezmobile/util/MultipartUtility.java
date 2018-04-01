@@ -19,6 +19,7 @@ import java.net.URLConnection;
  */
 
 public class MultipartUtility {
+
     private final String boundary;
     private static final String LINE_FEED = "\r\n";
     private HttpURLConnection httpConn;
@@ -26,26 +27,27 @@ public class MultipartUtility {
     private OutputStream outputStream;
     private PrintWriter writer;
 
-    public MultipartUtility(String requestURL, String charset)
-            throws IOException {
+    /**
+     * @param requestURL url to make request to.
+     * @param charset the charset to use.
+     * @throws IOException thrown if connection to url fails.
+     */
+    public MultipartUtility(String requestURL, String charset) throws IOException {
         this.charset = charset;
 
         // creates a unique boundary based on time stamp
         boundary = "===" + System.currentTimeMillis() + "===";
 
         URL url = new URL(requestURL);
-        Log.e("URL", "URL : " + requestURL);
         httpConn = (HttpURLConnection) url.openConnection();
         httpConn.setUseCaches(false);
         httpConn.setDoOutput(true); // indicates POST method
         httpConn.setDoInput(true);
-        httpConn.setRequestProperty("Content-Type",
-                "multipart/form-data; boundary=" + boundary);
+        httpConn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
         httpConn.setRequestProperty("User-Agent", "CodeJava Agent");
         httpConn.setRequestProperty("Test", "Bonjour");
         outputStream = httpConn.getOutputStream();
-        writer = new PrintWriter(new OutputStreamWriter(outputStream, charset),
-                true);
+        writer = new PrintWriter(new OutputStreamWriter(outputStream, charset), true);
     }
 
     /**
@@ -56,10 +58,8 @@ public class MultipartUtility {
      */
     public void addFormField(String name, String value) {
         writer.append("--").append(boundary).append(LINE_FEED);
-        writer.append("Content-Disposition: form-data; name=\"").append(name).append("\"")
-                .append(LINE_FEED);
-        writer.append("Content-Type: text/plain; charset=").append(charset).append(
-                LINE_FEED);
+        writer.append("Content-Disposition: form-data; name=\"").append(name).append("\"").append(LINE_FEED);
+        writer.append("Content-Type: text/plain; charset=").append(charset).append(LINE_FEED);
         writer.append(LINE_FEED);
         writer.append(value).append(LINE_FEED);
         writer.flush();
@@ -72,14 +72,11 @@ public class MultipartUtility {
      * @param uploadFile a File to be uploaded
      * @throws IOException
      */
-    public void addFilePart(String fieldName, File uploadFile)
-            throws IOException {
+    public void addFilePart(String fieldName, File uploadFile) throws IOException {
         String fileName = uploadFile.getName();
-        writer.append("--" + boundary).append(LINE_FEED);
-        writer.append(
-                "Content-Disposition: form-data; name=\"" + fieldName
-                        + "\"; filename=\"" + fileName + "\"")
-                .append(LINE_FEED);
+        writer.append("--").append(boundary).append(LINE_FEED);
+        writer.append("Content-Disposition: form-data; name=\"").append(fieldName).append(
+                "\"; filename=\"").append(fileName).append("\"").append(LINE_FEED);
         writer.append(
                 "Content-Type: "
                         + URLConnection.guessContentTypeFromName(fileName))
