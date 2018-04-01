@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Tradez Mobile</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="full_name">Full Name</string>
+    <string name="user_name">Username</string>
+    <string name="phone">Phone</string>
+    <string name="re_type_password">Re Type Password</string>
 </resources>
