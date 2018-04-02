@@ -8,4 +8,9 @@
     <string name="user_name">Username</string>
     <string name="phone">Phone</string>
     <string name="re_type_password">Re Type Password</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="create_ad">Create Ad</string>
+    <string name="view_profile">View Profile</string>
+    <string name="about">About</string>
 </resources>

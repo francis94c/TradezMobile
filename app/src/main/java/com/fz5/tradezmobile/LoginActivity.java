@@ -58,6 +58,9 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     if (response.getInt("user_id") != -1) {
                         Configs.setUserId(getApplicationContext(), response.getInt("user_id"));
+                        Configs.setFullName(getApplicationContext(), response.getJSONObject("user").getString("full_name"));
+                        Configs.setPhone(getApplicationContext(), response.getJSONObject("user").getString("phone"));
+                        Configs.setEmail(getApplicationContext(), response.getJSONObject("user").getString("email"));
                         startActivityForResult(new Intent(getApplicationContext(), MainActivity.class), RequestCodes.MAIN_ACTIVITY);
                     } else {
                         Toast.makeText(getApplicationContext(), "Invalid Email and or Password.", Toast.LENGTH_LONG).show();

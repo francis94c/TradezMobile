@@ -7,5 +7,8 @@ package com.fz5.tradezmobile.model;
 class SharedPreferencesContract {
     static class Keys {
         static String USER_ID = "user_id";
+        static String FULL_NAME = "first_name";
+        static String EMAIL = "email";
+        static String PHONE = "phone";
     }
 }

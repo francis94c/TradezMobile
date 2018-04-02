@@ -8,5 +8,6 @@ class OnActivityResultContract {
     static class RequestCodes {
         static int MAIN_ACTIVITY = 1;
         static int LOGIN_ACTIVITY = 2;
+        static int CREATE_AD_ACTIVITY = 3;
     }
 }
