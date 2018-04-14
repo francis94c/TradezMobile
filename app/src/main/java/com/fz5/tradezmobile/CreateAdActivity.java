@@ -117,7 +117,7 @@ public class CreateAdActivity extends AppCompatActivity {
         }
         if (permission) {
             Intent intent = new Intent();
-            intent.setType("image/*");
+            intent.setType("video/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
             startActivityForResult(Intent.createChooser(intent, "Select Picture"), 52);
         } else {
