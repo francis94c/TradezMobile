@@ -23,7 +23,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".CreateAdActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".AddMediaActivity"></activity>
     </application>
 
 </manifest>

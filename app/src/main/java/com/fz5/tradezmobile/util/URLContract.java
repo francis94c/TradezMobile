@@ -20,5 +20,17 @@ public class URLContract {
             return "http://" + server + "/tradez/index.php/TradezAPI/validateUser/";
         }
 
+        public static String getCreateAdUrl(int userId, String title, String location, int category, int subCategory) {
+            return "http://" + server + "/tradez/index.php/TradezAPI/createAd/" + userId + "/" + title + "/" + location + "/" + category + "/" + subCategory + "/";
+        }
+
+        public static String getCategoriesUrl() {
+            return "http://" + server + "/tradez/index.php/TradezAPI/getCategories/";
+        }
+
+        public static String getSubCategoriesUrl() {
+            return "http://" + server + "/tradez/index.php/TradezAPI/getSubCategories/";
+        }
+
     }
 }

@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="splash_bg">#96e6db</color>
+    <color name="card_shadow_1">#ffffff</color>
+    <color name="card_shadow_2">#d4d4d4</color>
+    <color name="spinner_bg">#f5f5f5</color>
 </resources>

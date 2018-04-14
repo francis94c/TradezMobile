@@ -13,4 +13,8 @@
     <string name="create_ad">Create Ad</string>
     <string name="view_profile">View Profile</string>
     <string name="about">About</string>
+    <string name="title">Title</string>
+    <string name="location">Location</string>
+    <string name="category">Category</string>
+    <string name="sub_category">Category</string>
 </resources>

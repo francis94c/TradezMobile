@@ -10,5 +10,7 @@ class SharedPreferencesContract {
         static String FULL_NAME = "first_name";
         static String EMAIL = "email";
         static String PHONE = "phone";
+        static String CATEGORIES = "";
+        static String SUB_CATEGORIES = "";
     }
 }
