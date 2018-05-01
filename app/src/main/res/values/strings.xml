@@ -17,4 +17,6 @@
     <string name="location">Location</string>
     <string name="category">Category</string>
     <string name="sub_category">Category</string>
+    <string name="add_video">Add Video</string>
+    <string name="add_image">Add Image</string>
 </resources>

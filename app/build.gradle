@@ -29,4 +29,5 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.android.support:design:26.0.0-alpha1'
     testImplementation 'junit:junit:4.12'
+    implementation project(':cropimage')
 }

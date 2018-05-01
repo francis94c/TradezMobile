@@ -84,7 +84,7 @@ public class SharedPreferencesHelper {
 
         public static ArrayList<SubCategory> getSubCategories(Context context) {
             try {
-                JSONArray array = new JSONArray(context.getSharedPreferences(context.getResources().getString(R.string.app_name), 0).getString(Keys.CATEGORIES, ""));
+                JSONArray array = new JSONArray(context.getSharedPreferences(context.getResources().getString(R.string.app_name), 0).getString(Keys.SUB_CATEGORIES, ""));
                 ArrayList<SubCategory> subCategories = new ArrayList<>();
                 JSONObject object;
                 for (int x = 0; x < array.length(); x ++) {

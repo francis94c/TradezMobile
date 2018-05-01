@@ -27,6 +27,7 @@ import com.fz5.tradezmobile.model.SharedPreferencesHelper.*;
 import com.fz5.tradezmobile.model.SubCategory;
 import com.fz5.tradezmobile.util.MultipartUtility;
 import com.fz5.tradezmobile.util.URLContract.*;
+import com.fz5.tradezmobile.OnActivityResultContract.*;
 
 import org.json.JSONObject;
 
@@ -71,16 +72,20 @@ public class CreateAdActivity extends AppCompatActivity {
 
     private ArrayList<String> getSubCategoriesList() {
         ArrayList<String> subCategories = new ArrayList<>();
-        for (SubCategory subCategory: this.subCategories) {
-            subCategories.add(subCategory.getName());
+        if (this.subCategories != null) {
+            for (SubCategory subCategory : this.subCategories) {
+                subCategories.add(subCategory.getName());
+            }
         }
         return subCategories;
     }
 
     private ArrayList<String> getCategoriesList() {
         ArrayList<String> categories = new ArrayList<>();
-        for (Category category: this.categories) {
-            categories.add(category.getName());
+        if (this.categories != null) {
+            for (Category category : this.categories) {
+                categories.add(category.getName());
+            }
         }
         return categories;
     }
@@ -96,6 +101,15 @@ public class CreateAdActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     Toast.makeText(getApplicationContext(), "Ad Created Successfully, Start adding Media.", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), AddMediaActivity.class);
+                    try {
+                        intent.putExtra("ad_id", response.getInt("ad_id"));
+                        intent.putExtra("new", true);
+                        startActivityForResult(intent, RequestCodes.ADD_MEDIA_ACTIVITY);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error reading response.", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -125,6 +139,8 @@ public class CreateAdActivity extends AppCompatActivity {
         }
     }
 
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 52) {
@@ -132,6 +148,8 @@ public class CreateAdActivity extends AppCompatActivity {
                 imageUri = data.getData();
                 new Thread(new UploadRunnable()).start();
             }
+        } else if (requestCode == RequestCodes.ADD_MEDIA_ACTIVITY) {
+            finish();
         }
     }
 

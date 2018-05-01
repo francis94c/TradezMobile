@@ -16,13 +16,11 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.fz5.tradezmobile.model.SharedPreferencesHelper.*;
 import com.fz5.tradezmobile.util.URLContract.*;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -98,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Error Getting Categories from the server.", Toast.LENGTH_SHORT).show();
             }
         });
-        JsonArrayRequest subCategoriesRequest = new JsonArrayRequest(URLSkeleton.getCategoriesUrl(), new Response.Listener<JSONArray>() {
+        JsonArrayRequest subCategoriesRequest = new JsonArrayRequest(URLSkeleton.getSubCategoriesUrl(), new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 Configs.setSubCategories(getApplicationContext(), response.toString());

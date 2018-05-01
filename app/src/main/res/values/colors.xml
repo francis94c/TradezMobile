@@ -7,4 +7,5 @@
     <color name="card_shadow_1">#ffffff</color>
     <color name="card_shadow_2">#d4d4d4</color>
     <color name="spinner_bg">#f5f5f5</color>
+    <color name="colorBackground">#413e4f</color>
 </resources>

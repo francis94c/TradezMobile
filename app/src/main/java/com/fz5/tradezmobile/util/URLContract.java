@@ -10,14 +10,14 @@ public class URLContract {
 
     public static class URLSkeleton {
 
-        static String server = "192.168.0.3";
+        static String server = "nfcsfutoalumni.org";
 
         public static String getSignUpUrl() {
             return "http://" + server + "/tradez/index.php/TradezAPI/signUp/";
         }
 
-        public static String getValidateUserUrl() {
-            return "http://" + server + "/tradez/index.php/TradezAPI/validateUser/";
+        public static String getValidateUserUrl(String email, String password) {
+            return "http://" + server + "/tradez/index.php/TradezAPI/validateUser/" + email + "/" + password + "/";
         }
 
         public static String getCreateAdUrl(int userId, String title, String location, int category, int subCategory) {
@@ -30,6 +30,14 @@ public class URLContract {
 
         public static String getSubCategoriesUrl() {
             return "http://" + server + "/tradez/index.php/TradezAPI/getSubCategories/";
+        }
+
+        public static String getUploadImageUrl(int adId) {
+            return "http://" + server + "/tradez/index.php/TradezAPI/addImage/" + adId;
+        }
+
+        public static String getUploadVideoUrl(int adId) {
+            return "http://" + server + "/tradez/index.php/TradezAPI/addVideo/" + adId;
         }
 
     }

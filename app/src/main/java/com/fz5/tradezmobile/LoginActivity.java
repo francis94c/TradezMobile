@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.fz5.tradezmobile.OnActivityResultContract.*;
 import com.android.volley.toolbox.Volley;
 import com.fz5.tradezmobile.model.SharedPreferencesHelper.*;
@@ -52,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         Map<String, String> params = new HashMap<>();
         params.put("email", email);
         params.put("password", password);
-        CustomRequest customRequest = new CustomRequest(Request.Method.POST, URLSkeleton.getValidateUserUrl(), params, new Response.Listener<JSONObject>() {
+        JsonObjectRequest objectRequest = new JsonObjectRequest(URLSkeleton.getValidateUserUrl(email, password), null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -75,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Error response from server.", Toast.LENGTH_LONG).show();
             }
         });
-        Volley.newRequestQueue(this).add(customRequest);
+        Volley.newRequestQueue(this).add(objectRequest);
     }
 
     public void signUpButton_Click(View view) {
