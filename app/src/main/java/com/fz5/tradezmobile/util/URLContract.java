@@ -13,11 +13,11 @@ public class URLContract {
         static String server = "nfcsfutoalumni.org";
 
         public static String getSignUpUrl() {
-            return "http://" + server + "/tradez/index.php/TradezAPI/signUp/";
+            return "http://" + server + "/tradez/index.php/TradezAPI/signUp";
         }
 
         public static String getValidateUserUrl(String email, String password) {
-            return "http://" + server + "/tradez/index.php/TradezAPI/validateUser/" + email + "/" + password + "/";
+            return "http://" + server + "/tradez/index.php/TradezAPI/validateUser/" + email + "/" + password;
         }
 
         public static String getImageUrl(String imageName) {
