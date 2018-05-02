@@ -20,6 +20,10 @@ public class URLContract {
             return "http://" + server + "/tradez/index.php/TradezAPI/validateUser/" + email + "/" + password + "/";
         }
 
+        public static String getImageUrl(String imageName) {
+            return "http://" + server + "/tradez/images/" + imageName + ".jpg";
+        }
+
         public static String getCreateAdUrl(int userId, String title, String location, int category, int subCategory) {
             return "http://" + server + "/tradez/index.php/TradezAPI/createAd/" + userId + "/" + title + "/" + location + "/" + category + "/" + subCategory + "/";
         }
@@ -36,8 +40,21 @@ public class URLContract {
             return "http://" + server + "/tradez/index.php/TradezAPI/addImage/" + adId;
         }
 
-        public static String getUploadVideoUrl(int adId) {
-            return "http://" + server + "/tradez/index.php/TradezAPI/addVideo/" + adId;
+        public static String getLoadAdsUrl() {
+            return "http://" + server + "/tradez/index.php/TradezAPI/getAds";
+        }
+
+        public static String getImagesUrl(int adId) {
+            return "http://" + server + "/tradez/index.php/TradezAPI/getAdImages/" + adId;
+        }
+
+        public static String getUserDetailsUrl(int uid) {
+            return "http://" + server + "/tradez/index.php/TradezAPI/getUserDetails/" + uid;
+        }
+
+        public static String getSearchAdsUrl(String search) {
+            search = search.replace(" ", "%20");
+            return "http://" + server + "/tradez/index.php/TradezAPI/searchAds/" + search;
         }
 
     }

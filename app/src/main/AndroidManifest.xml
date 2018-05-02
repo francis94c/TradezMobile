@@ -32,11 +32,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
         <activity android:name=".CreateAdActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".AddMediaActivity"></activity>
+        <activity android:name=".AddMediaActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -47,6 +55,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <activity android:name=".AdActivity" />
+        <activity android:name=".ImageViewActivity"></activity>
     </application>
 
 </manifest>
